@@ -1,7 +1,7 @@
 <h3 style="font-size:35px;">🏆 Pokétwo Autocatcher 🏆</h3>
-A <b>free</b> and open-source Pokétwo autocatcher, created with the goal of preventing people from wasting their money.
+A <b>free</b> and open-source Pokétwo autocatcher, created with the goal of preventing people from wasting their money. <br>
 
-**This is the version of the autocatcher with [repl.it](https://repl.it) support**
+> **This is the version of the autocatcher with [repl.it](https://repl.it) support**
 
 ---
 
