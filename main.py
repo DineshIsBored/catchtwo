@@ -41,7 +41,7 @@ def solve(message):
 
 def spam():
   while True:
-    num = random.randint(1,10000000000000000000000000)
+    num = random.randint(1, 10000000000000000000)
     bot.sendMessage(channel_id,num)
     intervals = [1, 1.1, 1.2, 1.3, 1.4]
     time.sleep(random.choice(intervals))
