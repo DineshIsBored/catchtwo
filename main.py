@@ -38,7 +38,6 @@ def solve(message):
     solution = re.findall('^'+hint_replaced+'$', pokemon_list, re.MULTILINE)
     return solution
 
-
 def spam():
   while True:
     num = random.randint(1, 10000000000000000000)
@@ -46,7 +45,6 @@ def spam():
     intervals = [1, 1.1, 1.2, 1.3, 1.4]
     time.sleep(random.choice(intervals))
             
-
 def start_spam():
     new_process = multiprocessing.Process(target=spam)
     new_process.start()
