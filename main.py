@@ -1,4 +1,4 @@
-import re, asyncio, json, random, string, keep_alive, os
+import re, asyncio, random, string, keep_alive, os
 from discord.ext import commands
 from discord.ext import tasks
 
