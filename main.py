@@ -2,7 +2,7 @@ import re, asyncio, random, string, keep_alive, os
 from discord.ext import commands
 from discord.ext import tasks
 
-version = 'v2.7.1'
+version = 'v2.7.2'
 
 user_token = os.environ['user_token']
 channel_id = os.environ['channel_id']
