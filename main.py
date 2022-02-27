@@ -1,23 +1,19 @@
-import re, asyncio, json, random, string, keep_alive
+import re, asyncio, json, random, string, keep_alive, os
 from discord.ext import commands
 from discord.ext import tasks
 
-keep_alive.keep_alive()
-
 version = 'v2.7.1'
 
-with open('data/config.json','r') as file:
-    info = json.loads(file.read())
-    user_token = info['user_token']
-    channel_id = info['channel_id']
+user_token = os.environ['user_token']
+channel_id = os.environ['channel_id']
 
-with open('data/pokemon.txt', 'r', encoding='utf8') as file:
+with open('data/pokemon', 'r', encoding='utf8') as file:
     pokemon_list = file.read()
-with open('data/legendary.txt','r') as file:
+with open('data/legendary','r') as file:
     legendary_list = file.read()
-with open('data/mythical.txt','r') as file:
+with open('data/mythical','r') as file:
     mythical_list = file.read()
-with open('data/level.txt','r') as file:
+with open('data/level','r') as file:
     to_level = file.readline()
 
 num_pokemon = 0
@@ -44,7 +40,7 @@ def solve(message):
 @tasks.loop(seconds=random.choice(intervals))
 async def spam():
     channel = bot.get_channel(int(channel_id))
-    await channel.send(f'{random.choices(string.ascii_uppercase + string.digits + string.ascii_lowercase, k=random.choice([7, 8, 9, 10]))}')
+    await channel.send("".join(random.choices(string.ascii_uppercase + string.ascii_lowercase, k=random.randint(10, 16))))
 
 @spam.before_loop
 async def before_spam():
@@ -125,4 +121,5 @@ async def on_message(message):
         await bot.process_commands(message)
 
 print(f'Pokétwo Autocatcher {version}\nA second gen free and open-source Pokétwo autocatcher by devraza\nEvent Log:')
+keep_alive.keep_alive()
 bot.run(f"{user_token}")

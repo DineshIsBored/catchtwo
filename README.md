@@ -21,22 +21,14 @@ The bot has the following features:
 Please note that this autocatcher requires Python 3.8 installed. Python 3.9 simply won't work with Discord.
 
 ### Getting Started:
-To start up the bot for the first time, please download the latest release from [here](https://github.com/devraza/catcher-one/releases/). <br>
-Then, install the required python packages by running the `setup.py` file in your downloaded folder, as shown below:
-```
-python3 setup.py
-```
+To start up the bot on replit, go to the 'Secrets' tab on replit (the lock icon) and in the 'key' area, write `user_token`, and then type in your discord account token in the 'value' section. <br>
+
+Then, create another secret with `channel_id` in the 'key' section, and type in the channel id you want the bot to spam and catch in into the 'value' section. <br>
+
+After you've done that, please see the below section.
 
 #### <b>Running</b>
-Once you have installed the correct dependencies, run the `setup.py` file and enter in the following fields when asked.
-
-##### <b>user_token</b>:
-Paste in your discord account's user token. You can find instructions on this [here](https://www.youtube.com/watch?v=3W9tAEsK7RM) <br>
-
-##### <b>channel_id</b>:
-This will allow the bot to use your preferred channel to spam as well as catch Pokétwo spawns. <br>
-Make sure you paste this carefully, as If you set it to the wrong channel it will spam and catch there. <br>
-See [here](https://www.youtube.com/watch?v=6dqYctHmazc) for help on getting this. <br>
+Once you have installed the correct dependencies, click the green 'Run' icon at the top of your webpage. If a new window opens up with 'Bot logged on' written inside, and `Logged into account: <account name>` has appeared into your console, then the bot has successfully started.
 
 After you've done the above, simply run the following command to start up your very own Pokétwo Autocatcher.
 ```
@@ -47,13 +39,12 @@ The command may vary depending on your operating system, so try `python3 main.py
 > Remember to cd into your autocatcher folder as well. If you need any help with something, feel free to open a Github Issue.
 
 ### Auto-levelling
-To enable auto-levelling, just put in the ID's of the Pokémon you want to be levelled up into the `level.txt` text file.
+To enable auto-levelling, just put in the ID's of the Pokémon you want to be levelled up into the `level` file (inside the `data` folder).
 
 ---
 
 ## **DISCLAIMER**
 
-Please note that self botting is against Discord's Terms of Service and being discovered <br> 
-using a self bot may result in your account being banned. To avoid this, keep knowledge of your self bot <br> to a minimum and use a throwaway account. I am not responsible for any accounts lost due to the self bot. <br> I also recommend checking the self bot channel's messages occasionally to see if Pokétwo has sent a captcha. <br> <b>If it has, it would be a good idea to solve it.</b> <br>
+Please note that self botting is against Discord's Terms of Service and being discovered using a self bot may result in your account being banned. To avoid this, keep knowledge of your self bot to a minimum and use a throwaway account. I am not responsible for any accounts lost due to the self bot. I also recommend checking the self bot channel's messages occasionally to see if Pokétwo has sent a captcha. **If it has, it would be a good idea to solve it.**
 
 ---
