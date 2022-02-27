@@ -2,6 +2,7 @@
 A second generation **free** and open-source Pokétwo autocatcher, created with the goal of preventing people from wasting their money.
 
 > **This is the version of the autocatcher with [repl.it](https://repl.it) support**
+To get your own repl.it version of the autocatcher, fork the repl.it [here](https://replit.com/@devraza/catchtwo). (you need a repl.it account for this!)
 
 ---
 
@@ -17,9 +18,6 @@ The bot has the following features:
 - 🏎️ Super fast; the autocatcher can even handle Incense!
 - 🔍 Pokétwo-Resistant - the autocatcher sends a random series of numbers to enhance undetectability
 
-### Requirements
-Please note that this autocatcher requires Python 3.8 installed. Python 3.9 simply won't work with Discord.
-
 ### Getting Started:
 To start up the bot on replit, go to the 'Secrets' tab on replit (the lock icon) and in the 'key' area, write `user_token`, and then type in your discord account token in the 'value' section. <br>
 
@@ -29,12 +27,6 @@ After you've done that, please see the below section.
 
 #### <b>Running</b>
 Once you have installed the correct dependencies, click the green 'Run' icon at the top of your webpage. If a new window opens up with 'Bot logged on' written inside, and `Logged into account: <account name>` has appeared into your console, then the bot has successfully started.
-
-After you've done the above, simply run the following command to start up your very own Pokétwo Autocatcher.
-```
-py main.py
-```
-The command may vary depending on your operating system, so try `python3 main.py` if this doesn't work.
 
 > Remember to cd into your autocatcher folder as well. If you need any help with something, feel free to open a Github Issue.
 
