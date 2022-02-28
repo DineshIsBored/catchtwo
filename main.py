@@ -1,21 +1,18 @@
-import re, asyncio, json, random, string, keep_alive
-from discord.ext import commands
-from discord.ext import tasks
+import re, os, asyncio, json, random, string, keep_alive
+from discord.ext import commands, tasks
 
 version = 'v2.7.2'
 
-with open('data/config.json','r') as file:
-    info = json.loads(file.read())
-    user_token = info['user_token']
-    channel_id = info['channel_id']
+user_token = os.environ['user_token']
+channel_id = os.environ['channel_id']
 
-with open('data/pokemon.txt', 'r', encoding='utf8') as file:
+with open('data/pokemon','r', encoding='utf8') as file:
     pokemon_list = file.read()
-with open('data/legendary.txt','r') as file:
+with open('data/legendary','r') as file:
     legendary_list = file.read()
-with open('data/mythical.txt','r') as file:
+with open('data/mythical','r') as file:
     mythical_list = file.read()
-with open('data/level.txt','r') as file:
+with open('data/level','r') as file:
     to_level = file.readline()
 
 num_pokemon = 0
@@ -25,8 +22,7 @@ mythical = 0
 
 poketwo = 716390085896962058
 bot = commands.Bot(command_prefix="->", self_bot=True)
-intervals = [2.0, 2.1, 2.3, 2.4, 2.5]
-keep_alive.keep_alive()
+intervals = [2.0, 2.1, 2.2, 2.3, 2.4]
 
 def solve(message):
     hint = []
@@ -43,7 +39,7 @@ def solve(message):
 @tasks.loop(seconds=random.choice(intervals))
 async def spam():
     channel = bot.get_channel(int(channel_id))
-    await channel.send(f'{random.choices(string.ascii_uppercase + string.digits + string.ascii_lowercase, k=random.choice([7, 8, 9, 10]))}')
+    await channel.send("".join(random.choices(string.ascii_uppercase + string.ascii_lowercase, k=random.randint(10, 16))))
 
 @spam.before_loop
 async def before_spam():
@@ -66,6 +62,22 @@ async def on_message(message):
                     spam.cancel()
                     await asyncio.sleep(1.5)
                     await channel.send('p!h')
+                elif "Congratulations" in embed_title:
+                    embed_content = message.embeds[0].description
+                    if 'now level' in embed_content:
+                        spam.cancel()
+                        split = embed_content.split(' ')
+                        a = embed_content.count(' ')
+                        level = int(split[a].replace('!', ''))
+                        if level == 100:
+                            await channel.send(f"p!s {to_level}")
+                            with open('data/level.txt', 'r') as fi:
+                                data = fi.read().splitlines(True)
+                            with open('data/level.txt', 'w') as fo:
+                                fo.writelines(data[1:])
+                            spam.start()
+                        else:
+                            spam.start()
             else:
                 content = message.content
                 if 'The pokémon is ' in content:
@@ -99,7 +111,6 @@ async def on_message(message):
                         print(f'Shiny: {shiny} | Legendary: {legendary} | Mythical: {mythical}')
                     else:
                         print(f'Total Pokémon Caught: {num_pokemon}')
-
                 elif 'human' in content:
                     spam.cancel()
                     print('Captcha detected; autocatcher paused. Press enter to restart, after solving captcha manually.')
@@ -108,5 +119,6 @@ async def on_message(message):
     if not message.author.bot:
         await bot.process_commands(message)
 
-print(f'Pokétwo Autocatcher {version}\nA completely free and open-source Pokétwo autocatcher\nEvent Log:')
+print(f'Pokétwo Autocatcher {version}\nA second gen free and open-source Pokétwo autocatcher by devraza\nEvent Log:')
+keep_alive.keep_alive()
 bot.run(f"{user_token}")
