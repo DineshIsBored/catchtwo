@@ -2,7 +2,7 @@
 A second generation **free** and open-source Pokétwo autocatcher, created with the goal of preventing people from wasting their money.
 
 > **This is the version of the autocatcher with [repl.it](https://repl.it) support**
-To get your own repl.it version of the autocatcher, fork the repl.it [here](https://replit.com/@devraza/catchtwo). (you need a repl.it account for this!)
+To get your own repl.it version of the autocatcher, fork the repl.it [here](https://replit.com/@faizannoushad/Poketwo-Autocatcher). (you need a repl.it account for this!)
 
 ---
 
