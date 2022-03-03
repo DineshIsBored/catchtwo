@@ -6,11 +6,11 @@ def install(package):
 with open("data/config.json", "a") as file:
     install('discord.py-self')
     print("\nInput your discord authorization token:")
-    auth_token = input()
+    auth_token = input(NzM1MDgwMjA5NDMwMjE)
     file.write("{\n")
     file.write(f'   "user_token" : "{auth_token}",\n')
     print("Now, input the Channel ID of the channel for spamming and catching:")
-    channel_id = input()
+    channel_id = input(948786317205065750)
     file.write(f'   "channel_id" : "{channel_id}"\n')
     file.write("}")
     exec(open('main.py').read())
